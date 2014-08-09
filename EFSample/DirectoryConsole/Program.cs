@@ -9,7 +9,8 @@ namespace DirectoryConsole
     {
         static void Main(string[] args)
         {
-            //InsertData();
+            Database.SetInitializer(new DirectoryDbInitializer());
+
             GetData();
         }
 
@@ -32,35 +33,6 @@ namespace DirectoryConsole
                 {
                     Console.WriteLine(item.Name);
                 }
-            }
-        }
-
-        static void InsertData()
-        {
-            var root = new Folder
-            {
-                Name = "Root",
-                Subentries = new HashSet<Entry>
-                {
-                    new Folder
-                    {
-                        Name = "Dir 1",
-                        Subentries = new HashSet<Entry>
-                        {
-                            new File { Name = "File 1-1" },
-                            new File { Name = "File 1-2" },
-                        },
-                    },
-                    new Folder { Name = "Dir 2" },
-                    new File { Name = "File 1" },
-                },
-            };
-
-            using (var db = new DirectoryDb())
-            {
-                db.Entries.Add(root);
-
-                db.SaveChanges();
             }
         }
     }
