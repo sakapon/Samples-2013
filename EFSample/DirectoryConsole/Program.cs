@@ -11,11 +11,6 @@ namespace DirectoryConsole
         {
             Database.SetInitializer(new DirectoryDbInitializer());
 
-            GetData();
-        }
-
-        static void GetData()
-        {
             using (var db = new DirectoryDb())
             {
                 var files = db.Entries
