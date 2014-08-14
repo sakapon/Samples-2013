@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelMediaConsole", "ExcelMediaConsole\ExcelMediaConsole.csproj", "{65D55D95-FC34-436D-928E-23B03E22BFFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeNumbersConsole", "PrimeNumbersConsole\PrimeNumbersConsole.csproj", "{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{65D55D95-FC34-436D-928E-23B03E22BFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65D55D95-FC34-436D-928E-23B03E22BFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65D55D95-FC34-436D-928E-23B03E22BFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
