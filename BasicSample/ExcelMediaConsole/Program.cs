@@ -17,6 +17,7 @@ namespace ExcelMediaConsole
 
             using (var archive = ZipFile.OpenRead(excelFilePath))
             {
+                // In case of Excel, the path separator is "/" not "\".
                 var query = archive.Entries
                     .Where(e => e.FullName.StartsWith("xl/media/", StringComparison.InvariantCultureIgnoreCase));
 
@@ -26,6 +27,16 @@ namespace ExcelMediaConsole
                     entry.ExtractToFile(filePath, true);
                 }
             }
+        }
+
+        static void ExtractAndZip()
+        {
+            var targetFilePath = "Book1.xlsx";
+            var extractDirPath = "Book1";
+            var zipFilePath = "Book1.zip";
+
+            ZipFile.ExtractToDirectory(targetFilePath, extractDirPath);
+            ZipFile.CreateFromDirectory(extractDirPath, zipFilePath);
         }
     }
 }
