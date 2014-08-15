@@ -35,7 +35,13 @@ namespace ExcelMediaConsole
             var extractDirPath = "Book1";
             var zipFilePath = "Book1.zip";
 
+            if (Directory.Exists(extractDirPath))
+            {
+                Directory.Delete(extractDirPath, true);
+            }
             ZipFile.ExtractToDirectory(targetFilePath, extractDirPath);
+
+            File.Delete(zipFilePath);
             ZipFile.CreateFromDirectory(extractDirPath, zipFilePath);
         }
     }
