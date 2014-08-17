@@ -49,7 +49,7 @@ namespace PrimeNumbersConsole
             }
         }
 
-        public static IEnumerable<T> Do<T>(this IEnumerable<T> source, Action<T> action)
+        public static IEnumerable<TSource> Do<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (action == null) throw new ArgumentNullException("action");
