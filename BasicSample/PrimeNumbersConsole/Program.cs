@@ -30,9 +30,9 @@ namespace PrimeNumbersConsole
         static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers = (minValue, maxValue) =>
             new[] { new List<long>() }
                 .SelectMany(primes => Enumerable2.Range2(2, maxValue)
-                    .Select(i => new { primes, i, root = Math.Sqrt(i) }))
+                    .Select(i => new { primes, i, root_i = (long)Math.Sqrt(i) }))
                 .Where(_ => _.primes
-                    .TakeWhile(p => p <= _.root)
+                    .TakeWhile(p => p <= _.root_i)
                     .All(p => _.i % p != 0))
                 .Do(_ => _.primes.Add(_.i))
                 .Select(_ => _.i)
