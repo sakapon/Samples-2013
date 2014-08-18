@@ -17,8 +17,8 @@ namespace PrimeNumbersConsole
             Console.WriteLine("{0} seconds", stopwatch.Elapsed.TotalSeconds);
         }
 
-        static readonly Func<int, int, IEnumerable<int>> GetPrimeNumbers_Org = (minValue, maxValue) =>
-            new[] { new List<int>() }
+        static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers_Org = (minValue, maxValue) =>
+            new[] { new List<long>() }
                 .SelectMany(primes => Enumerable2.Range2(2, maxValue)
                     .Select(i => new { primes, i }))
                 .Where(_ => _.primes
@@ -27,8 +27,8 @@ namespace PrimeNumbersConsole
                 .Select(_ => _.i)
                 .SkipWhile(i => i < minValue);
 
-        static readonly Func<int, int, IEnumerable<int>> GetPrimeNumbers = (minValue, maxValue) =>
-            new[] { new List<int>() }
+        static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers = (minValue, maxValue) =>
+            new[] { new List<long>() }
                 .SelectMany(primes => Enumerable2.Range2(2, maxValue)
                     .Select(i => new { primes, i, root = Math.Sqrt(i) }))
                 .Where(_ => _.primes
@@ -41,9 +41,9 @@ namespace PrimeNumbersConsole
 
     public static class Enumerable2
     {
-        public static IEnumerable<int> Range2(int minValue, int maxValue)
+        public static IEnumerable<long> Range2(long minValue, long maxValue)
         {
-            for (int i = minValue; i <= maxValue; i++)
+            for (var i = minValue; i <= maxValue; i++)
             {
                 yield return i;
             }
