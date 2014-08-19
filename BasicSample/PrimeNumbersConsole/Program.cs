@@ -18,6 +18,10 @@ namespace PrimeNumbersConsole
         }
 
         static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers_Org = (minValue, maxValue) =>
+            Enumerable2.Range2(Math.Max(minValue, 2), maxValue).Where(i =>
+                Enumerable2.Range2(2, i - 1).All(j => i % j != 0));
+
+        static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers_Alpha = (minValue, maxValue) =>
             new[] { new List<long>() }
                 .SelectMany(primes => Enumerable2.Range2(2, maxValue)
                     .Select(i => new { primes, i }))
@@ -27,7 +31,7 @@ namespace PrimeNumbersConsole
                 .Select(_ => _.i)
                 .SkipWhile(i => i < minValue);
 
-        static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers_Alpha = (minValue, maxValue) =>
+        static readonly Func<long, long, IEnumerable<long>> GetPrimeNumbers_Beta = (minValue, maxValue) =>
             new[] { new List<long>() }
                 .SelectMany(primes => Enumerable2.Range2(2, maxValue)
                     .Select(i => new { primes, i, root_i = (long)Math.Sqrt(i) }))
