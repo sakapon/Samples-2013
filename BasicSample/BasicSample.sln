@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelMediaConsole", "ExcelM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeNumbersConsole", "PrimeNumbersConsole\PrimeNumbersConsole.csproj", "{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PrimeNumbersConsoleF", "PrimeNumbersConsoleF\PrimeNumbersConsoleF.fsproj", "{A509BB5C-59A7-44A4-A05E-970899478FBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51E534F5-F3EF-4545-AF66-95ABF4FFDC4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A509BB5C-59A7-44A4-A05E-970899478FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A509BB5C-59A7-44A4-A05E-970899478FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A509BB5C-59A7-44A4-A05E-970899478FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A509BB5C-59A7-44A4-A05E-970899478FBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
