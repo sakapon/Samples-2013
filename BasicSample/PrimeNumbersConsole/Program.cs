@@ -62,6 +62,21 @@ namespace PrimeNumbersConsole
                 .Do(_ => _.primes.Add(_.i))
                 .Select(_ => _.i)
                 .SkipWhile(i => i < minValue);
+
+        static IEnumerable<long> GetPrimeNumbersUsingFlags(long minValue, long maxValue)
+        {
+            var isPrimes = new bool[maxValue + 1];
+            for (var i = 2; i <= maxValue; i++)
+                isPrimes[i] = true;
+
+            for (var p = 2; p <= maxValue; p++)
+                if (isPrimes[p])
+                    for (var i = 2 * p; i <= maxValue; i += p)
+                        isPrimes[i] = false;
+
+            return Enumerable2.Range2(minValue, maxValue)
+                .Where(i => isPrimes[i]);
+        }
     }
 
     public static class Enumerable2
