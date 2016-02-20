@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400" />
+    <meta name="viewport" content="width=device-width, height=device-height" />
+    <meta property="og:url" content="http://apptest12.saka-pon.net/KLibraryJS/TileButton/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Do Design : saka-pon.net" />
+    <meta property="og:title" content="TileButton.js" />
+    <meta property="og:description" content="TileButton.js は、タイル状のボタンを配置するための jQuery プラグインです。" />
+    <meta property="og:image" content="http://storage.saka-pon.net/Contents/Images/Thumbnails/TileButton.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <title>TileButton.js</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://storage.saka-pon.net/Contents/Scripts/KLibrary-1.1.61.js" type="text/javascript"></script>
+    <link href="http://storage.saka-pon.net/Contents/Styles/TileButton-1.1.61.css" rel="stylesheet" type="text/css" />
+    <script src="http://storage.saka-pon.net/Contents/Scripts/TileButton-1.1.61.js" type="text/javascript"></script>
+    <link href="../Resources/Styles/TileButton-TestPage.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1 class="accent-fore-color accent-border-color">TileButton.js</h1>
+    <p>TileButton.js は、タイル状のボタンを配置するための jQuery プラグインです。<br />
+        テーマ (背景色・アクセント カラー) を切り替えることもできます。</p>
+    <br class="clear" />
+    <h4 class="clear">背景色</h4>
+    <div class="clear">
+        <button class="tile-body-color" title="Black" style="background-color: #444444;" data-fore-color="#F0F0F0" data-back-color="#101010"></button>
+        <button class="tile-body-color" title="White" style="background-color: #BBBBBB;" data-fore-color="#101010" data-back-color="#F0F0F0"></button>
+    </div>
+    <h4 class="clear">アクセント カラー</h4>
+    <div class="clear">
+        <button class="tile-accent-color" title="Magenta" style="background-color: #FF1AA1;"></button>
+        <button class="tile-accent-color" title="Purple" style="background-color: #AB1AFF;"></button>
+        <button class="tile-accent-color" title="Teal" style="background-color: #00ABA9;"></button>
+        <button class="tile-accent-color" title="Lime" style="background-color: #85B524;"></button>
+        <button class="tile-accent-color" title="Brown" style="background-color: #A05000;"></button>
+        <button class="tile-accent-color" title="Pink" style="background-color: #E671B8;"></button>
+        <button class="tile-accent-color" title="Orange" style="background-color: #E48F09;"></button>
+        <button class="tile-accent-color" title="Blue" style="background-color: #1BA1E2;"></button>
+        <button class="tile-accent-color" title="Red" style="background-color: #E6200D;"></button>
+        <button class="tile-accent-color" title="Green" style="background-color: #339933;"></button>
+    </div>
+    <br class="clear" />
+    <h3 class="accent-border-color">テキスト ボタン (test)</h3>
+    <div class="clear tile-text-test">
+        <div class="tile-text">テキスト</div>
+        <a href="#" class="tile-text">リンク</a>
+        <button class="tile-text">Button</button>
+        <input type="button" class="tile-text" value="ボタン" />
+        <input type="submit" class="tile-text" value="投稿" />
+        <div id="TextClickedCount" class="literal">0</div>
+    </div>
+    <br class="clear" />
+    <h3 class="accent-border-color">画像ボタン (test)</h3>
+    <div class="clear tile-image-test">
+        <img class="tile-image" src="http://storage.saka-pon.net/Contents/Images/Dark/back.png" alt="画像" title="画像" />
+        <a href="#">
+            <img class="tile-image" src="http://storage.saka-pon.net/Contents/Images/Dark/refresh.png" alt="画像リンク" title="画像リンク" />
+        </a>
+        <input type="image" class="tile-image" src="http://storage.saka-pon.net/Contents/Images/Dark/search.png" alt="ボタン" title="ボタン" />
+        <div id="ImageClickedCount" class="literal">0</div>
+    </div>
+    <br class="clear" />
+    <h3>disabled (test)</h3>
+    <div class="clear">
+        <input id="DisableSwitch" type="button" class="tile-text" value="有効/無効" />
+    </div>
+    <br class="clear" />
+    <h3>Busy Indicator (test)</h3>
+    <div class="clear">
+        <input id="LoadingSwitch" type="button" class="tile-text" value="Load/Stop" />
+        <div class="busy-roll"></div>
+    </div>
+    <div class="clear" style="height: 16px;">
+        <div class="busy-line"></div>
+    </div>
+    <br class="clear" />
+    <h3 class="accent-border-color">ダウンロード</h3>
+    <div class="clear"><span class="literal">TileButton.js 1.1.61 (TileButton-1.1.61.zip)</span><a href="http://storage.saka-pon.net/Contents/Downloads/TileButton-1.1.61.zip" class="tile-text">ダウンロード</a></div>
+    <div style="height: 80px;"></div>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function () {
+            TileButton.bodyForeColor = "#101010";
+            TileButton.bodyBackColor = "#F0F0F0";
+            $("body").tileButton();
+
+            var isButtonEnabled = true;
+            $("#DisableSwitch").click(function () {
+                isButtonEnabled = !isButtonEnabled;
+                // .prop("disabled", !isButtonEnabled) も OK です。
+                $(".tile-text-test .tile-text, .tile-image-test .tile-image").setIsEnabled(isButtonEnabled);
+            });
+
+            var isLoading = false;
+            $(".busy-line, .busy-roll").hide();
+            $("#LoadingSwitch").click(function () {
+                isLoading = !isLoading;
+                if (isLoading) {
+                    $(".busy-line, .busy-roll").show();
+                } else {
+                    $(".busy-line, .busy-roll").hide();
+                }
+            });
+
+            var textClickedCount = 0;
+            $(".tile-text-test .tile-text").click(function () {
+                textClickedCount++;
+                $("#TextClickedCount").text(textClickedCount.toString());
+            });
+
+            var imageClickedCount = 0;
+            $(".tile-image-test .tile-image").click(function () {
+                imageClickedCount++;
+                $("#ImageClickedCount").text(imageClickedCount.toString());
+            });
+        });
+        //]]>
+    </script>
+</body>
+</html>

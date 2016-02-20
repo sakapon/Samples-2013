@@ -1,0 +1,32 @@
+﻿body
+{
+    font-family: "Segoe UI" , メイリオ, Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin: 24px;
+}
+.clear
+{
+    clear: both;
+}
+h1
+{
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+h3.accent-border-color
+{
+    border-left-width: 6px;
+    border-left-style: solid;
+    padding-left: 6px;
+}
+h4
+{
+    font-weight: normal;
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+.literal
+{
+    float: left;
+    margin: 10px 16px;
+}
