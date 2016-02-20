@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400" />
+    <meta name="viewport" content="width=device-width, height=device-height" />
+    <title>defineProperty 1</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        //<![CDATA[
+        var obj = {};
+        Object.defineProperty(obj, "prop1", createDescriptor("prop1"));
+
+        function createDescriptor(name) {
+            var value;
+            return {
+                get: function () {
+                    return value;
+                },
+                set: function (v) {
+                    if (value === v) return;
+                    value = v;
+                    $(this).trigger("propertychange", [name, v]);
+                },
+                enumerable: true,
+                configurable: true
+            };
+        }
+
+        obj.prop1 = "Original";
+        $(obj).on("propertychange", function (e, name, value) {
+            alert(name + ": " + value);
+        });
+        obj.prop1 = "New";
+        //]]>
+    </script>
+</body>
+</html>

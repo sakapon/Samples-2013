@@ -1,0 +1,52 @@
+﻿body
+{
+    font-family: "Segoe UI" , メイリオ, Tahoma, Geneva, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px 24px;
+}
+.page
+{
+    margin: 24px auto;
+    width: 420px;
+}
+.product
+{
+    width: 400px;
+    height: 132px;
+    border-bottom: 1px dotted #666;
+}
+.product h1
+{
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+.product img
+{
+    float: right;
+    width: 100px;
+    height: 100px;
+    margin-top: 8px;
+}
+.product .desc
+{
+    height: 40px;
+}
+.product .price
+{
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 6px;
+}
+.times h3
+{
+    font-weight: normal;
+}
+.times p
+{
+    font-size: 36px;
+    line-height: 48px;
+    margin-top: -8px;
+}
