@@ -13,9 +13,9 @@
     <meta property="og:locale" content="ja_JP" />
     <title>TileButton.js</title>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js" type="text/javascript"></script>
-    <script src="http://storage.saka-pon.net/Contents/Scripts/KLibrary-1.1.61.js" type="text/javascript"></script>
-    <link href="http://storage.saka-pon.net/Contents/Styles/TileButton-1.1.61.css" rel="stylesheet" type="text/css" />
-    <script src="http://storage.saka-pon.net/Contents/Scripts/TileButton-1.1.61.js" type="text/javascript"></script>
+    <script src="http://storage.saka-pon.net/Contents/Scripts/KLibrary-1.1.83.js" type="text/javascript"></script>
+    <link href="http://storage.saka-pon.net/Contents/Styles/TileButton-1.1.83.css" rel="stylesheet" type="text/css" />
+    <script src="http://storage.saka-pon.net/Contents/Scripts/TileButton-1.1.83.js" type="text/javascript"></script>
     <link href="../Resources/Styles/TileButton-TestPage.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -67,6 +67,11 @@
         <input id="DisableSwitch" type="button" class="tile-text" value="有効/無効" />
     </div>
     <br class="clear" />
+    <h3>ボタンの追加 (test)</h3>
+    <div class="clear">
+        <input id="AddButton" type="image" class="tile-image" src="http://storage.saka-pon.net/Contents/Images/Dark/add.png" alt="追加" title="追加" />
+    </div>
+    <br class="clear" />
     <h3>Busy Indicator (test)</h3>
     <div class="clear">
         <input id="LoadingSwitch" type="button" class="tile-text" value="Load/Stop" />
@@ -77,14 +82,12 @@
     </div>
     <br class="clear" />
     <h3 class="accent-border-color">ダウンロード</h3>
-    <div class="clear"><span class="literal">TileButton.js 1.1.61 (TileButton-1.1.61.zip)</span><a href="http://storage.saka-pon.net/Contents/Downloads/TileButton-1.1.61.zip" class="tile-text">ダウンロード</a></div>
+    <div class="clear"><span class="literal">TileButton.js 1.1.83 (TileButton-1.1.83.zip)</span><a href="http://storage.saka-pon.net/Contents/Downloads/TileButton-1.1.83.zip" class="tile-text">ダウンロード</a></div>
     <div style="height: 80px;"></div>
     <script type="text/javascript">
         //<![CDATA[
         $(function () {
-            TileButton.bodyForeColor = "#101010";
-            TileButton.bodyBackColor = "#F0F0F0";
-            $("body").tileButton();
+            $(document).tileButton({ bodyForeColor: "#101010", bodyBackColor: "#F0F0F0" });
 
             var isButtonEnabled = true;
             $("#DisableSwitch").click(function () {
@@ -93,8 +96,11 @@
                 $(".tile-text-test .tile-text, .tile-image-test .tile-image").setIsEnabled(isButtonEnabled);
             });
 
+            $("#AddButton").click(function () {
+                $('<input type="button" class="tile-text" value="Added" />').insertAfter(this);
+            });
+
             var isLoading = false;
-            $(".busy-line, .busy-roll").hide();
             $("#LoadingSwitch").click(function () {
                 isLoading = !isLoading;
                 if (isLoading) {
