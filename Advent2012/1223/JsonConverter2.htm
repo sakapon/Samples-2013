@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="86400" />
+    <meta name="viewport" content="width=device-width, height=device-height" />
+    <title>JSON Converter Sample 2</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://storage.saka-pon.net/Contents/Scripts/KLibrary-1.1.93.min.js" type="text/javascript"></script>
+    <link href="../Resources/Styles/DataBinding.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="page">
+        <h1>JSON Converter Sample 2</h1>
+        <!--[if lt IE 9]>
+        <div>Internet Explorer 9 以上でご覧ください。</div>
+        <![endif]-->
+        <div class="times" data-context="appModel.dates"></div>
+        <script type="text/plain">
+            <div>
+                <h3>${name}</h3>
+                <p>${date:yyyy/MM/dd HH:mm:ss.fff}</p>
+            </div>
+        </script>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        var appModel = {};
+
+        $(function () {
+            $.ajaxSetup({
+                converters: {
+                    "text json": function (text) {
+                        return JSON.parse(text, reviveDate);
+                    }
+                }
+            });
+
+            function reviveDate(key, value) {
+                if (value == null ||
+                    value.constructor !== String)
+                    return value;
+                var m = /^\/Date\((\d+)(.+)?\)\/$/g.exec(value);
+                if (!m) return value;
+                return new Date(parseInt(m[1]));
+            }
+
+            $.getJSON("../Services/Dates2.js")
+                .done(function (data) {
+                    appModel.dates = data;
+                    $(document).updateTarget();
+                });
+        });
+        //]]>
+    </script>
+</body>
+</html>
